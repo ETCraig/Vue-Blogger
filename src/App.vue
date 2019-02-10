@@ -1,26 +1,27 @@
 <template>
   <div>
-    <add-blog />
+    <ShowBlogs/>
   </div>
 </template>
 
 <script>
-import AddBlog from './components/AddBlog';
+import AddBlog from "./components/AddBlog";
+import ShowBlogs from "./components/ShowBlogs";
+
 export default {
   components: {
-    'AddBlog': AddBlog
+    AddBlog: AddBlog,
+    ShowBlogs: ShowBlogs
   },
-  data () {
-    return {
-      
-    }
+  data() {
+    return {};
   }
-}
+};
 </script>
 
 <style>
-  body {
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-  }
+body {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
 </style>
