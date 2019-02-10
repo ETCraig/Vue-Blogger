@@ -2,7 +2,7 @@
   <div id="show-blogs">
     <h1>All Blog Articles</h1>
     <input type="text" v-model="search" placeholder="search blogs">
-    <div v-for="blog in filteredBlogs" :key="blog" class="single-blog">
+    <div v-for="blog in filteredBlogs" :key="blog.id" class="single-blog">
       <router-link v-bind:to="'/blog/' + blog.id"><h2>{{blog.title | toUppercase}}</h2></router-link>
       <article>{{blog.content | snippet}}</article>
     </div>
@@ -28,20 +28,20 @@ export default {
       }).then(function(data) {
         var blogsArray = [];
         for(let key in data) {
-          data[key].id = key
+          data[key].id = key;
           blogsArray.push(data[key]);
         }
         this.blogs = blogsArray;
       })
   },
-  // filters: {
-  //   toUppercase(value) {
-  //     return value.toUpperCase();
-  //   },
-  //   snippet(value) {
-  //     return value.slice(0, 100) + "...";
-  //   }
-  // },
+  filters: {
+    toUppercase(value) {
+      return value.toUpperCase();
+    },
+    snippet(value) {
+      return value.slice(0, 100) + "...";
+    }
+  },
   // directives: {
   //   rainbow: {
   //     bind(el, binding, vnode) {
