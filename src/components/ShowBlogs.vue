@@ -3,14 +3,16 @@
     <h1>All Blog Articles</h1>
     <input type="text" v-model="search" placeholder="search blogs">
     <div v-for="blog in filteredBlogs" :key="blog.id" class="single-blog">
-      <router-link v-bind:to="'/blog/' + blog.id"><h2>{{blog.title | toUppercase}}</h2></router-link>
+      <router-link v-bind:to="'/blog/' + blog.id">
+        <h2>{{blog.title | toUppercase}}</h2>
+      </router-link>
       <article>{{blog.content | snippet}}</article>
     </div>
   </div>
 </template>
 
 <script>
-import SearchMixin from '../mixins/SearchMixin';
+import SearchMixin from "../mixins/SearchMixin";
 
 export default {
   data() {
@@ -24,15 +26,16 @@ export default {
     this.$http
       .get("https://vue-blogger-37b45.firebaseio.com/posts.json")
       .then(function(data) {
-        return data.json()
-      }).then(function(data) {
+        return data.json();
+      })
+      .then(function(data) {
         var blogsArray = [];
-        for(let key in data) {
+        for (let key in data) {
           data[key].id = key;
           blogsArray.push(data[key]);
         }
         this.blogs = blogsArray;
-      })
+      });
   },
   filters: {
     toUppercase(value) {
@@ -42,17 +45,6 @@ export default {
       return value.slice(0, 100) + "...";
     }
   },
-  // directives: {
-  //   rainbow: {
-  //     bind(el, binding, vnode) {
-  //       el.style.color =
-  //         "#" +
-  //         Math.random()
-  //           .toString(16)
-  //           .slice(2, 8);
-  //     }
-  //   }
-  // },
   mixins: [SearchMixin]
 };
 </script>

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import SearchMixin from '../mixins/SearchMixin';
+import SearchMixin from "../mixins/SearchMixin";
 
 export default {
   data() {
@@ -26,9 +26,7 @@ export default {
         this.blogs = data.body.slice(0, 10);
       });
   },
-  computed: {
-    
-  },
+  computed: {},
   filters: {
     toUppercase(value) {
       return value.toUpperCase();

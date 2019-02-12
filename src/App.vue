@@ -1,7 +1,7 @@
 <template>
   <div>
-    <app-header />
-    <router-view />
+    <app-header/>
+    <router-view/>
   </div>
 </template>
 
@@ -13,10 +13,10 @@ import Header from "./components/Header";
 
 export default {
   components: {
-    'add-blog': AddBlog,
-    'show-blogs': ShowBlogs,
-    'list-blogs': ListBlogs,
-    'app-header': Header
+    "add-blog": AddBlog,
+    "show-blogs": ShowBlogs,
+    "list-blogs": ListBlogs,
+    "app-header": Header
   },
   data() {
     return {};
