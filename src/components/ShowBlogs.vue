@@ -15,6 +15,7 @@
 import SearchMixin from "../mixins/SearchMixin";
 
 export default {
+  name: 'showBlogs',
   data() {
     return {
       blogs: [],

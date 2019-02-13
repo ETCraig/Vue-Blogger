@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'singleBlog',
   data() {
     return {
       id: this.$route.params.id,
